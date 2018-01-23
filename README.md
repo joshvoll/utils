@@ -97,7 +97,7 @@ same struct example
         x := []Result{Result{"josue", "Rodriguez", 39}, Result{"Alanis", "Rodriguez", 12}}
 
         // Using utils library to generate [][]string from struct
-        res := utils.GenerateRows(obj)
+        res := utils.GenerateRows(x)
 
         // creating the file on the file system
         file, err := os.Create("result.csv")
