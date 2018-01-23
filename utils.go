@@ -5,7 +5,7 @@
 	// convert struct interface{}  to 2d array []interface{}
 */
 
-package main
+package utils
 
 import (
 	"fmt"
