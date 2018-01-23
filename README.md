@@ -74,6 +74,56 @@ same struct example
 
 as you can see this will be **extremely** useful to generate **CSV** files, the generate type is ready to work with golang **encoding/csv** standard library
 
+## Generate CSV example
+
+same struct example
+```go
+
+    package main 
+
+    import (
+        "encoding/csv"
+        "os"
+        "utils"
+    )
+
+    type Person struct {
+        Name     string `col:"name"`
+        LastName string `col:"Last Name"`
+        Age      int `col:"age"`
+    }
+
+    func main() {
+        x := []Result{Result{"josue", "Rodriguez", 39}, Result{"Alanis", "Rodriguez", 12}}
+
+        // Using utils library to generate [][]string from struct
+        res := utils.GenerateRows(obj)
+
+        // creating the file on the file system
+        file, err := os.Create("result.csv")
+
+        if err != nil {
+            log.Fatal(err)
+        }
+
+        writer := csv.NewWriter(file)
+
+        for _, row := range res {
+            // here we write the data to the csv file
+            writer.Write(row)
+        }
+        defer writer.Flush()
+
+    }
+
+```
+``` terminal
+
+    Name, Lastname, age
+    josue, Rodriguez, 78
+    alanis, Rodriguez, 12
+```
+
 
 
 
